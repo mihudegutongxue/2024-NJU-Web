@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣分享</title>
+    <link rel="stylesheet" href="../css/activity.css">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <div class="container">
+        <header>
+            <button class="home-button" onclick="window.location.href='../index.html';">返回首页</button>
+            <h1>用户活跃度情况</h1>
+        </header>
+        <section class="overview">
+            <h2>用户活跃度概览</h2>
+            <div id="user-stats">
+                <div class="stat">
+                    <h3>总贴子数</h3>
+                    <p>30</p>
+                </div>
+            </div>
+        </section>
+        <section class="chart">
+            <h2>不同类别帖子分布情况</h2>
+            <div style="width: 1000px; height: 600px; margin: 0 auto;" id="chart"></div>
+        </section>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+
+<script>
+    
+</script>
+
+<script>
+    var art_culture = 0
+    var travel_adventure = 0
+    var food_cooking = 0
+    var health_fitness = 0
+    var tech_programming = 0
+    var fashion_beauty = 0
+
+    const token = localStorage.getItem('token')
+    axios({
+            url: 'http://127.0.0.1:3007/my/article/getTotal',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': token
+            },
+            data: {
+                username: localStorage.getItem('username')
+            }
+        }).then(result => {
+            console.log(result.data.data)
+            for(let i=0;i< result.data.data.length; i++){
+                if(result.data.data[i].leibie === '艺术与文化'){
+                    art_culture++
+                }else if(result.data.data[i].leibie === '旅行与探险'){
+                    travel_adventure++
+                } else if (result.data.data[i].leibie === '美食与烹饪') {
+                    food_cooking++
+                } else if (result.data.data[i].leibie === '健康与运动') {
+                    health_fitness++
+                } else if (result.data.data[i].leibie === '科技与编程') {
+                    tech_programming++
+                } else if (result.data.data[i].leibie === '时尚与美容') {
+                    fashion_beauty++
+                }
+            }
+
+            var myChart = echarts.init(document.getElementById('chart'));
+
+            option = {
+                xAxis: {
+                    type: 'category',
+                    data: ['艺术与文化', '旅行与探险', '美食与烹饪', '健康与运动', '科技与编程', '时尚与美容']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        data: [art_culture, travel_adventure, food_cooking, health_fitness, tech_programming, fashion_beauty],
+                        type: 'bar'
+                    }
+                ]
+            };
+            myChart.setOption(option);
+        })
+
+        
+</script>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣分享</title>
+
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/alert.css">
+</head>
+
+<body>
+    <script src="../js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    <div class="shell">
+        <div class="close-part">
+            <img src="../images/close.png" class="close-register" decoding="async" >
+        </div>
+        <div class="container a-container" id="a-container">
+            <form action="" method="" class="form" id="a-form">
+                <h2 class="form_title title">创建账号</h2>
+                <input type="text" class="form_input" placeholder="用户名" id="username1">
+                <input type="text" class="form_input" placeholder="邮箱" id="email1">
+                <input type="text" class="form_input" placeholder="密码" id="password1">
+                <button class="form_button button submit" id="reguser">SIGN UP</button>
+            </form>
+        </div>
+
+        <div class="container b-container" id="b-container">
+            <form action="" method="" class="form" id="b-form">
+                <h2 class="form_title title">登入账号</h2>
+                <input type="text" class="form_input" placeholder="用户名" id="username2">
+                <input type="text" class="form_input" placeholder="密码" id="password2">
+                <button class="form_button button submit" id="login">SIGN IN</button>
+            </form>
+        </div>
+
+        <div class="switch" id="switch-cnt">
+            <div class="switch_circle"></div>
+            <div class="switch_circle switch_circle-t"></div>
+            <div class="switch_container" id="switch-c1">
+                <h2 class="switch_title title" style="letter-spacing: 0;">Welcome Back！</h2>
+                <p class="switch_description description">已经有账号了嘛，去登入账号来进入奇妙世界吧！！！</p>
+                <button class="switch_button button switch-btn">SIGN IN</button>
+            </div>
+
+            <div class="switch_container is-hidden" id="switch-c2">
+                <h2 class="switch_title title" style="letter-spacing: 0;">Hello Friend！</h2>
+                <p class="switch_description description">去注册一个账号，让我们踏入奇妙的旅途！</p>
+                <button class="switch_button button switch-btn">SIGN UP</button>
+            </div>
+        </div>
+        <!-- 登录提示框 -->
+        <div class="alert alert-success show login_alert" style="display: none;">提示信息</div>
+        <!-- 注册提示框 -->
+        <div class="alert alert-success show reguser_alert" style="display: none;">提示信息</div>
+    </div>
+
+    <script>
+        let switchCtn = document.querySelector("#switch-cnt");
+        let switchC1 = document.querySelector("#switch-c1");
+        let switchC2 = document.querySelector("#switch-c2");
+        let switchCircle = document.querySelectorAll(".switch_circle");
+        let switchBtn = document.querySelectorAll(".switch-btn");
+        let aContainer = document.querySelector("#a-container");
+        let bContainer = document.querySelector("#b-container");
+        let allButtons = document.querySelectorAll(".submit");
+        let close_register = document.querySelector('.close-register');
+
+        let getButtons = (e) => e.preventDefault()
+        let changeForm = (e) => {
+            // 修改类名
+            switchCtn.classList.add("is-gx");
+            setTimeout(function () {
+                switchCtn.classList.remove("is-gx");
+            }, 1500)
+            switchCtn.classList.toggle("is-txr");
+            switchCircle[0].classList.toggle("is-txr");
+            switchCircle[1].classList.toggle("is-txr");
+
+            switchC1.classList.toggle("is-hidden");
+            switchC2.classList.toggle("is-hidden");
+            aContainer.classList.toggle("is-txl");
+            bContainer.classList.toggle("is-txl");
+            bContainer.classList.toggle("is-z");
+        }
+        // 点击切换
+        let shell = (e) => {
+            for (var i = 0; i < allButtons.length; i++)
+                allButtons[i].addEventListener("click", getButtons);
+            for (var i = 0; i < switchBtn.length; i++)
+                switchBtn[i].addEventListener("click", changeForm)
+        }
+        window.addEventListener("load", shell);
+
+        close_register.addEventListener('click', () => {
+            location.href = '../index.html'
+        })
+    </script>
+
+    <!-- 登录axios部分 -->
+	<script>
+		const login=document.getElementById('login')
+		const login_alert=document.querySelector('.login_alert')
+
+		function alertFn(msg,isSuccess){
+			login_alert.style.display='block'
+
+			login_alert.innerHTML=msg
+
+			const bgStyle=isSuccess?'alert-success':'alert-danger'
+			login_alert.classList.add(bgStyle)
+
+			setTimeout(() => {
+				login_alert.style.display = 'none'
+				login_alert.classList.remove(bgStyle)
+			},2000);
+
+		}
+
+		login.addEventListener('click',()=>{
+			var username=document.getElementById('username2').value.trim()
+			var password = document.getElementById('password2').value.trim()
+
+			if (username1.length < 4) {
+				alertFn1('用户名必须大于等于4位', false)
+				return
+			}
+
+			if (password.length < 6) {
+				alertFn('密码必须大于等于6位', false)
+				return
+			}
+
+			axios({
+				url:'http://127.0.0.1:3007/api/login',
+				method:'POST',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				data:{
+					username,
+					password
+				}
+			}).then(result=>{
+				localStorage.setItem('username', result.data['username'])
+				localStorage.setItem('token', result.data['token'])
+
+				if(result.data.status===0){
+					alertFn(result.data.message, true)
+					setTimeout(() => {
+						document.getElementById('username2').value = ''
+						document.getElementById('password2').value = ''
+						location.href = '../index.html'
+					}, 2000)
+					localStorage.setItem("isLogin", "true");
+				}else{
+					alertFn(result.data.message, false)
+				}
+			})
+			
+		})
+		
+	</script>
+
+	<!-- 注册axios部分 -->
+	<script>
+		const reguser = document.getElementById('reguser')
+		const reguser_alert = document.querySelector('.reguser_alert')
+
+		function alertFn1(msg, isSuccess) {
+				reguser_alert.style.display = 'block'
+
+				reguser_alert.innerHTML = msg
+
+				const bgStyle = isSuccess ? 'alert-success' : 'alert-danger'
+				reguser_alert.classList.add(bgStyle)
+
+				setTimeout(() => {
+					reguser_alert.style.display = 'none'
+					reguser_alert.classList.remove(bgStyle)
+				}, 2000);
+			}
+
+		reguser.addEventListener('click',()=>{
+			const username1 = document.getElementById('username1').value.trim()
+			const email1 = document.getElementById('email1').value.trim()
+			const password1 = document.getElementById('password1').value.trim()
+
+			if (username1.length < 4) {
+				alertFn1('用户名必须大于等于4位', false)
+				return
+			}
+
+			if (password1.length < 6) {
+				alertFn1('密码必须大于等于6位', false)
+				return
+			}
+
+			axios({
+				url: 'http://127.0.0.1:3007/api/reguser',
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				data: {
+					username:username1,
+					email: email1,
+					password:password1
+				}
+			}).then(result => {
+				if (result.data.status === 0) {
+					alertFn1(result.data.message, true)
+					setTimeout(() => {
+						document.getElementById('username1').value = ''
+						document.getElementById('email1').value = ''
+						document.getElementById('password1').value = ''
+					}, 2000)
+				} else {
+					alertFn(result.data.message, false)
+				}
+			})
+		})
+	</script>
+
+</body>
+
+</html>

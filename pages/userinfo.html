@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>趣分享</title>
+    <link rel="stylesheet" href="../css/userinfo.css">
+
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- partial:index.partial.html -->
+    <section class="cardSection opacity"
+        style="background-image: url(https://firebasestorage.googleapis.com/v0/b/fotos-3cba1.appspot.com/o/background-2.jpg?alt=media&token=6f88ec91-8517-4553-845e-eb00ea94e199);">
+        <div class="container anim">
+            <div class="card frontFace">
+                <div class="backCard"></div>
+                <div class="backCard"></div>
+                <div class="backCard"></div>
+                <div class="mainContent">
+                    <div class="logo">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                                <path fill="#ffffff"
+                                    d="M33.9 2.762a4.734 4.734 0 0 0-5.29.094L5.042 19.439A4.608 4.608 0 0 0 3 23.281v17.9a4.736 4.736 0 0 0 2.134 3.935L29.17 61.227a4.754 4.754 0 0 0 5.2 0l24.5-16.3A4.736 4.736 0 0 0 61 40.989V23.374a4.736 4.736 0 0 0-2.134-3.935z">
+                                </path>
+                                <path fill="#1b1b1b"
+                                    d="M52.184 22.156l-9.002 6.091-8.537-6.184V9.789l17.539 12.367zM28.52 9.882v11.993l-8.723 6.09-8.631-5.902L28.52 9.882zM8.754 27.965l5.568 3.842-5.568 3.935v-7.777zm19.859 25.579L11.166 41.739l8.724-6.184 8.723 5.902v12.087zm-3.341-21.831l5.661-4.029 6.589 4.404-5.847 3.935-6.403-4.31zm9.558 21.831V41.457l8.352-5.621 9.002 5.996L34.83 53.544zM54.69 35.93l-5.94-3.936 5.94-4.029v7.965z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="companyName" data-last-letter="n">趣分享</p>
+                        <p class="slogan">兴趣圈分享平台</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card backFace">
+                <div class="backCard"></div>
+                <div class="backCard"></div>
+                <div class="backCard"></div>
+                <div class="mainContent">
+                    <div class="leftSide">
+                        <div class="logo">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                                    <path fill="#ffffff"
+                                        d="M33.9 2.762a4.734 4.734 0 0 0-5.29.094L5.042 19.439A4.608 4.608 0 0 0 3 23.281v17.9a4.736 4.736 0 0 0 2.134 3.935L29.17 61.227a4.754 4.754 0 0 0 5.2 0l24.5-16.3A4.736 4.736 0 0 0 61 40.989V23.374a4.736 4.736 0 0 0-2.134-3.935z">
+                                    </path>
+                                    <path fill="#1b1b1b"
+                                        d="M52.184 22.156l-9.002 6.091-8.537-6.184V9.789l17.539 12.367zM28.52 9.882v11.993l-8.723 6.09-8.631-5.902L28.52 9.882zM8.754 27.965l5.568 3.842-5.568 3.935v-7.777zm19.859 25.579L11.166 41.739l8.724-6.184 8.723 5.902v12.087zm-3.341-21.831l5.661-4.029 6.589 4.404-5.847 3.935-6.403-4.31zm9.558 21.831V41.457l8.352-5.621 9.002 5.996L34.83 53.544zM54.69 35.93l-5.94-3.936 5.94-4.029v7.965z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="companyName" data-last-letter="n">趣分享</p>
+                            <p class="slogan">兴趣圈分享平台</p>
+                        </div>
+                        <div class="styled-text" style="margin-bottom: 9px;" id="back_to">
+                            回到首页
+                        </div>
+                        <div class="styled-text" id="tuichu">
+                            退出登录
+                        </div>
+                    </div>
+                    <div class="rightSide">
+                        <div class="group nameGroup">
+                            <div class="text">
+                                <p id="username">Jorge Luis Aguilar</p>
+                                <p>用户名</p>
+                            </div>
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                                    <path
+                                        d="M50.9 55.3a12.2 12.2 0 0 0-4.3-1.7c-8.1-1.5-8.1-4.1-8.1-5.7v-1a14.8 14.8 0 0 0 4.2-7.1c2.5 0 3-5.1 3-5.9s.1-3.8-2.4-3.8c5.4-14.6-8.9-20.5-19.6-13-4.4 0-4.8 6.5-3.1 13-2.5 0-2.4 3.1-2.4 3.8s.6 5.9 3 5.9a14.8 14.8 0 0 0 4.3 7.2v1c0 1.6 0 4.2-8.1 5.7a11.9 11.9 0 0 0-4.3 1.6">
+                                    </path>
+                                    <circle cx="32" cy="32" r="30"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="text"> 
+                                <p id="email">www.jorgedev.com</p>
+                                <p>邮箱</p>
+                            </div>
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                                    <path
+                                        d="M59.4 10.3l-5.7-5.7a9 9 0 0 0-12.7 0l-8.5 8.5a9 9 0 0 0 0 12.7l5.7 5.7a9 9 0 0 0 12.7 0l8.5-8.5a9 9 0 0 0 0-12.7zM31.5 38.2l-5.7-5.7a9 9 0 0 0-12.7 0L4.6 41a9 9 0 0 0 0 12.7l5.7 5.7a9 9 0 0 0 12.7 0l8.5-8.5a9 9 0 0 0 0-12.7z">
+                                    </path>
+                                    <path d="M18.1 46L46 18.1"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="text">
+                                <p id="total">+011789874562</p>
+                                <p>发布帖子总数</p>
+                            </div>
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                                    <path
+                                        d="M59.4 10.3l-5.7-5.7a9 9 0 0 0-12.7 0l-8.5 8.5a9 9 0 0 0 0 12.7l5.7 5.7a9 9 0 0 0 12.7 0l8.5-8.5a9 9 0 0 0 0-12.7zM31.5 38.2l-5.7-5.7a9 9 0 0 0-12.7 0L4.6 41a9 9 0 0 0 0 12.7l5.7 5.7a9 9 0 0 0 12.7 0l8.5-8.5a9 9 0 0 0 0-12.7z">
+                                    </path>
+                                </svg>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- partial -->
+
+    <script>
+        const username = document.getElementById('username')
+        const email = document.getElementById('email')
+        const token = localStorage.getItem('token')
+        const back_to = document.getElementById('back_to')
+        const tuichu = document.getElementById('tuichu')
+
+        axios({
+            url: 'http://127.0.0.1:3007/my/userinfo',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': token
+            },
+            data: {
+                username: localStorage.getItem('username')
+            }
+        }).then(result =>{
+            username.innerHTML = result.data.data.username
+            email.innerHTML = result.data.data.email
+        })
+
+        back_to.addEventListener('click', ()=>{
+            location.href = '../index.html'
+        })
+
+        tuichu.addEventListener('click', () => {
+            localStorage.removeItem('token')
+            localStorage.removeItem('username')
+            localStorage.removeItem('isLogin')
+            location.href = '../index.html'
+        })
+
+        axios({
+                url: 'http://127.0.0.1:3007/my/article/getTotal',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': token
+                },
+                data: {
+                    username: localStorage.getItem('username')
+                }
+            }).then(result => {
+                total.innerHTML = result.data.data.length
+            })
+
+    </script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src="../js/userinfo.js"></script>
+
+</body>
+
+</html>

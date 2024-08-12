@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣分享</title>
+    <link rel="stylesheet" href="../css/classification.css">
+</head>
+<body>
+
+    <header>
+        <h1>兴趣圈分享平台</h1>
+        <nav>
+            <ul>
+                <li><a href="#art-culture">艺术与文化</a></li>
+                <li><a href="#travel-adventure">旅行与探险</a></li>
+                <li><a href="#food-cooking">美食与烹饪</a></li>
+                <li><a href="#health-fitness">健康与运动</a></li>
+                <li><a href="#tech-programming">科技与编程</a></li>
+                <li><a href="#fashion-beauty">时尚与美容</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="art-culture" class="category">
+            <img src="../images/img8.jpg" alt="艺术与文化" class="category-img">
+            <div class="category-content">
+                <h2>艺术与文化</h2>
+                <p>探索各种艺术形式，包括绘画、音乐、舞蹈、书籍和戏剧等。</p>
+            </div>
+        </section>
+        <section id="travel-adventure" class="category">
+            <img src="../images/img7.jpg" alt="旅行与探险" class="category-img">
+            <div class="category-content">
+                <h2>旅行与探险</h2>
+                <p>分享旅行经验、目的地推荐和风光摄影。</p>
+            </div>
+        </section>
+        <section id="food-cooking" class="category">
+            <img src="../images/img6.jpg" alt="美食与烹饪" class="category-img">
+            <div class="category-content">
+                <h2>美食与烹饪</h2>
+                <p>发现食谱、烹饪技巧和餐厅推荐。</p>
+            </div>
+        </section>
+        <section id="health-fitness" class="category">
+            <img src="../images/img9.jpg" alt="健康与运动" class="category-img">
+            <div class="category-content">
+                <h2>健康与运动</h2>
+                <p>了解健身锻炼、健康饮食和运动建议。</p>
+            </div>
+        </section>
+        <section id="tech-programming" class="category">
+            <img src="../images/img10.jpg" alt="科技与编程" class="category-img">
+            <div class="category-content">
+                <h2>科技与编程</h2>
+                <p>探索最新科技趋势、编程教程和科技产品评测。</p>
+            </div>
+        </section>
+        <section id="fashion-beauty" class="category">
+            <img src="../images/img11.jpg" alt="时尚与美容" class="category-img">
+            <div class="category-content">
+                <h2>时尚与美容</h2>
+                <p>获取时尚搭配、化妆技巧和美容护肤的建议。</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 兴趣圈分享平台. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const art_culture = document.getElementById('art-culture')
+        const travel_adventure = document.getElementById('travel-adventure')
+        const food_cooking = document.getElementById('food-cooking')
+        const health_fitness = document.getElementById('health-fitness')
+        const tech_programming = document.getElementById('tech-programming')
+        const fashion_beauty = document.getElementById('fashion-beauty')
+
+        art_culture.addEventListener('click',()=>{
+            localStorage.setItem('leibie', 'art-culture')
+            location.href='comment.html'
+        })
+        travel_adventure.addEventListener('click', () => {
+            localStorage.setItem('leibie', 'travel-adventure')
+            location.href = 'comment.html'
+        })
+        food_cooking.addEventListener('click', () => {
+            localStorage.setItem('leibie', 'food-cooking')
+            location.href = 'comment.html'
+        })
+        health_fitness.addEventListener('click', () => {
+            localStorage.setItem('leibie', 'health-fitness')
+            location.href = 'comment.html'
+        })
+        tech_programming.addEventListener('click', () => {
+            localStorage.setItem('leibie', 'tech-programming')
+            location.href = 'comment.html'
+        })
+        fashion_beauty.addEventListener('click', () => {
+            localStorage.setItem('leibie', 'fashion-beauty')
+            location.href = 'comment.html'
+        })
+    </script>
+
+</body>
+</html>
