@@ -1,0 +1,23 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+h2 {
+    margin: 0 0 15px;
+    color: #333;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #fff;
+}

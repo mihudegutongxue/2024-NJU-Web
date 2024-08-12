@@ -1,0 +1,389 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Dancing+Script&display=swap");
+
+body {
+    overflow-x: hidden;
+    color: #fff;
+    margin: 0 auto;
+}
+
+body * {
+    font-family: 'Comfortaa', cursive;
+}
+
+body p,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+    margin: 0;
+}
+
+body a {
+    color: #fff;
+    text-decoration: none;
+}
+
+body ul,
+body li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.cardSection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-blend-mode: soft-light;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    transition: ease all .3s;
+}
+
+.cardSection.opacity {
+    opacity: 0;
+}
+
+.cardSection .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 90%;
+    margin: 0 auto;
+    height: 250px;
+    position: relative;
+    perspective: 1000px;
+    transition: ease all .5s;
+}
+
+.cardSection .container.anim {
+    opacity: 0;
+}
+
+.cardSection .container.anim .card {
+    transform: rotateX(360deg);
+}
+
+.cardSection .container.anim .card.frontFace {
+    opacity: 0;
+}
+
+.cardSection .container.movCards {
+    height: 550px;
+}
+
+.cardSection .container.movCards .card .backCard {
+    transition-delay: .5s;
+}
+
+.cardSection .container.movCards .card .backCard:nth-of-type(1) {
+    transform: scale(0.99) translateX(12px) translateY(12px);
+}
+
+.cardSection .container.movCards .card .backCard:nth-of-type(2) {
+    transform: scale(0.99) translateX(6px) translateY(6px);
+}
+
+.cardSection .container.movCards .card .backCard:nth-of-type(3) {
+    transform: scale(0.99) translateX(0px) translateY(0px);
+}
+
+.cardSection .container .card {
+    position: absolute;
+    box-shadow: 0 0 1px 1px #000;
+    transition: ease all 1s;
+}
+
+.cardSection .container .card .backCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 450px;
+    height: 250px;
+    border-radius: 15px;
+    background-color: #1b1b1b;
+    transform-origin: bottom right;
+    box-shadow: 0 0 1px 1px #000;
+    transition: ease all .5s;
+}
+
+.cardSection .container .card.frontFace {
+    top: 0;
+    z-index: 1;
+}
+
+.cardSection .container .card.frontFace .backCard:after {
+    box-shadow: 0 0 10px 0 #000;
+}
+
+.cardSection .container .card.frontFace .backCard:before,
+.cardSection .container .card.frontFace .backCard:after,
+.cardSection .container .card.frontFace .mainContent:before,
+.cardSection .container .card.frontFace .mainContent:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background-color: #fff;
+}
+
+.cardSection .container .card.frontFace .backCard:before,
+.cardSection .container .card.frontFace .mainContent:before {
+    top: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.cardSection .container .card.frontFace .backCard:after,
+.cardSection .container .card.frontFace .mainContent:after {
+    bottom: 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.cardSection .container .card.backFace {
+    bottom: 0;
+}
+
+.cardSection .container .card.backFace .mainContent {
+    justify-content: space-between;
+}
+
+.cardSection .container .card .mainContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 450px;
+    height: 250px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #1b1b1b;
+    box-sizing: border-box;
+    box-shadow: 0 0 1px 1px #000;
+    position: relative;
+}
+
+.cardSection .container .card .mainContent .logo {
+    text-align: center;
+}
+
+.cardSection .container .card .mainContent .logo .icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 10px auto;
+}
+
+.cardSection .container .card .mainContent .logo .companyName {
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+.cardSection .container .card .mainContent .logo .companyName:after {
+    content: attr(data-last-letter);
+    letter-spacing: 0;
+}
+
+.cardSection .container .card .mainContent .logo .slogan {
+    font-size: 14px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.cardSection .container .card .mainContent .qr {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+    border: 1px solid;
+}
+
+.cardSection .container .card .mainContent .leftSide {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    height: 100%;
+}
+
+.cardSection .container .card .mainContent .leftSide .logo .icon {
+    width: 40px;
+    height: 40px;
+}
+
+.cardSection .container .card .mainContent .leftSide .logo .companyName {
+    font-size: 14px;
+}
+
+.cardSection .container .card .mainContent .leftSide .logo .slogan {
+    font-size: 12px;
+}
+
+.cardSection .container .card .mainContent .rightSide .group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.cardSection .container .card .mainContent .rightSide .group:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.cardSection .container .card .mainContent .rightSide .group.nameGroup {
+    margin-bottom: 35px;
+}
+
+.cardSection .container .card .mainContent .rightSide .group.nameGroup .icon {
+    width: 30px;
+    height: 30px;
+}
+
+.cardSection .container .card .mainContent .rightSide .group .text {
+    font-size: 12px;
+    text-align: right;
+}
+
+.cardSection .container .card .mainContent .rightSide .group .text .big {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cardSection .container .card .mainContent .rightSide .group .icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.cardSection .container .card .mainContent .rightSide .group .icon svg path,
+.cardSection .container .card .mainContent .rightSide .group .icon svg circle {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+}
+
+@media only screen and (max-width: 600px) {
+    .cardSection .container {
+        height: auto;
+        padding: 50px 0;
+    }
+
+    .cardSection .container.anim {
+        opacity: 1;
+    }
+
+    .cardSection .container.anim .card {
+        transform: none;
+    }
+
+    .cardSection .container.anim .card.frontFace {
+        opacity: 1;
+    }
+
+    .cardSection .container.movCards {
+        height: auto;
+    }
+
+    .cardSection .container .card {
+        position: relative;
+        top: 0;
+        bottom: 0;
+    }
+
+    .cardSection .container .card.frontFace {
+        margin-bottom: 50px;
+    }
+
+    .cardSection .container .card.backFace .mainContent {
+        justify-content: flex-start;
+    }
+
+    .cardSection .container .card .mainContent {
+        flex-direction: column;
+        width: 250px;
+        height: 450px;
+    }
+
+    .cardSection .container .card .mainContent .qr {
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .cardSection .container .card .mainContent .leftSide {
+        height: auto;
+        margin-bottom: 50px;
+    }
+
+    .cardSection .container .card .mainContent .rightSide .group {
+        width: 100%;
+    }
+
+    .cardSection .container .card .mainContent .rightSide .group:not(:last-child) {
+        margin-bottom: 15px;
+    }
+
+    .cardSection .container .card .mainContent .rightSide .group .icon {
+        display: none;
+    }
+
+    .cardSection .container .card .mainContent .rightSide .group .text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cardSection .container .card .backCard {
+        display: none;
+    }
+}
+
+.styled-text {
+    font-size: 24px;
+    /* 你可以调整字体大小 */
+    font-weight: bold;
+    /* 加粗 */
+    color: white;
+    /* 文字颜色为白色 */
+    text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(0, 0, 0, 0.3),
+        0 0 5px rgba(0, 0, 0, 0.3);
+    /* 添加阴影效果 */
+    display: inline-block;
+    /* 让文字块保持内联状态 */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    /* 添加过渡效果 */
+    margin-bottom: 17px;
+}
+
+.styled-text:hover {
+    color: yellow;
+    /* 鼠标悬停时文字颜色变黄 */
+    text-shadow:
+        1px 1px 4px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(255, 255, 0, 0.5),
+        0 0 10px rgba(255, 255, 0, 0.5);
+    /* 鼠标悬停时阴影效果 */
+    cursor: pointer;
+}
